@@ -3,7 +3,7 @@ import { Route, Redirect } from 'react-router-dom';
 import EmptyLayout from '../../_components/layout/EmptyLayout';
 
 const PublicRoute = ({ component: Component, restricted, ...rest }) => {
-  const isLogin = true;
+  const isLogin = false;
   return (
     <Route
       {...rest}
