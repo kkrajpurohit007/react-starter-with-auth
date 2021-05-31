@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './style.css';
 
@@ -15,15 +15,17 @@ import NotFound from './_pages/error/NotFoundPage';
 const App = () => {
   return (
     <div>
-      <Switch>
-        <Suspense fallback={'LOading...'}>
-          <PublicRoute exact path="/" component={LoginPage} />
-          <PublicRoute exact path="/register" component={RegisterPage} />
-          <PublicRoute exact path="/login" component={LoginPage} />
-          <PrivateRoute path="/dashboard" component={DashboardPage} />
-          {/* <Route component={NotFound} /> */}
-        </Suspense>
-      </Switch>
+      <BrowserRouter>
+        <Switch>
+          <Suspense fallback={'LOading...'}>
+            <PublicRoute exact path="/" component={LoginPage} />
+            <PublicRoute exact path="/register" component={RegisterPage} />
+            <PublicRoute exact path="/login" component={LoginPage} />
+            <PrivateRoute path="/dashboard" component={DashboardPage} />
+            {/* <Route component={NotFound} /> */}
+          </Suspense>
+        </Switch>
+      </BrowserRouter>
     </div>
   );
 };
